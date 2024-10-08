@@ -35,7 +35,7 @@ const fetchHeadlines = async () => {
     } else{
         //handle errors
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -43,42 +43,42 @@ const fetchHeadlines = async () => {
 }
 
 window.onload = function() {
-    newsType.innerHTML ="<h4>Headlines</h4>";
+    newsType.innerHTML ="<h4>Haber Başlıkları</h4>";
     fetchHeadlines();
 };
 
 generalBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>General news</h4>";
+    newsType.innerHTML="<h4>Genel Haberler</h4>";
     fetchGeneralNews();
 });
 
 businessBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Business</h4>";
+    newsType.innerHTML="<h4>İş Hayatı</h4>";
     fetchBusinessNews();
 });
 
 technologyBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Technology</h4>";
+    newsType.innerHTML="<h4>Teknoloji</h4>";
     fetchTechnologyNews();
 });
 
 scienceBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Science</h4>";
+    newsType.innerHTML="<h4>Bilim</h4>";
     fetchScienceNews();
 });
 
 entertainmentBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Entertainment</h4>";
+    newsType.innerHTML="<h4>Eğlence</h4>";
     fetchEntertainmentNews();
 });
 
 healthBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Health</h4>";
+    newsType.innerHTML="<h4>Sağlık</h4>";
     fetchHealthNews();
 });
 
 searchBtn.addEventListener("click", function(){
-    newsType.innerHTML="<h4>Search: "+newsQuery.value+"</h4>";
+    newsType.innerHTML="<h4>Arama: "+newsQuery.value+"</h4>";
     fetchQueryNews();
 });
 
@@ -91,7 +91,7 @@ const fetchGeneralNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -107,7 +107,7 @@ const fetchBusinessNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -123,7 +123,7 @@ const fetchTechnologyNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -139,7 +139,7 @@ const fetchScienceNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -156,7 +156,7 @@ const fetchEntertainmentNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -172,7 +172,7 @@ const fetchHealthNews = async () => {
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -192,7 +192,7 @@ const fetchQueryNews = async () => {
     } else{
         //error handle
         console.log(response.status, response.statusText);
-        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
     }
 
@@ -257,3 +257,4 @@ function displayNews(){
 
     });
 }
+
