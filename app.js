@@ -43,7 +43,7 @@ const fetchHeadlines = async () => {
 }
 
 window.onload = function() {
-    newsType.innerHTML ="<h4>Haber Başlıkları</h4>";
+    newsType.innerHTML ="<h4>Genel Haberler</h4>";
     fetchHeadlines();
 };
 
