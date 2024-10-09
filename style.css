@@ -11,7 +11,7 @@ h5{
 }
 
 .nav-link{
-    background-color: #261c3d;
+    background-color: #332166;
     color: lavenderblush;
     border: none;
     border-radius: 40px;
@@ -63,6 +63,21 @@ h5{
 .my_cat:hover{
     background-color: #8771e6;
     border-color: #8771e6;
+}
+
+.me{
+    color: lavenderblush;
+    cursor: pointer;
+    display: flex;
+    justify-content: left;
+    font-size: 20px;
+    border-style: double;
+    border-width: 8px;
+
+}
+
+.me:hover{
+    background-color: #332166;
 }
 
 .filters{
