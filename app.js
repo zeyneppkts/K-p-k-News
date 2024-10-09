@@ -288,3 +288,7 @@ const fetchFilteredNews = async (fromDate, toDate) => {
 function kopukFoto(){
     window.open('https://pin.it/5yvxWP1rD', '_blank');
 }
+
+function benGithub(){
+    window.open('https://github.com/zeyneppkts', '_blank');
+}
