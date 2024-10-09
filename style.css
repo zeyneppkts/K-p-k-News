@@ -3,12 +3,11 @@ body{
     display: flex;
     justify-content: center;
     background-color: #adefff;
-    color: rgb(17, 24, 87);
+    color: #111857;
 }
 
 h5{
     font-family: cursive;
-    text-decoration: underline;
 }
 
 .nav-link{
@@ -43,7 +42,7 @@ h5{
 }
 
 .navbar-brand{
-    color: #8b69e7;
+    color: #331092;
     text-decoration: underline ;
     font-style: oblique;
 }
@@ -53,4 +52,15 @@ h5{
     display: flex;
     justify-content: right;
     cursor: pointer;
+    font-size: 20px;
+    border-style: dotted;
+    border-radius: 20px;
+    border-width: 8px;
+    border-color: #111857;
+    background-color: #111857 ;
+}
+
+.my_cat:hover{
+    background-color: #8771e6;
+    border-color: #8771e6;
 }
