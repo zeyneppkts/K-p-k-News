@@ -16,14 +16,14 @@ var NewsDataArr = [];
 
 //apis
 const API_KEY = "8320619300c84651bc866672e88c0087";
-const HEADLINES_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&apiKey=";
-const GENERAL_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=general&apiKey="
-const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=business&apiKey="
-const TECHNOLOGY_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=technology&pageSize=8&apiKey="
-const SCIENCE_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=science&apiKey="
-const ENTERTAINMENT_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=entertainment&apiKey="
-const HEALTH_NEWS = "https://newsapi.org/v2/top-headlines?country=tr&category=health&apiKey="
-const SEARCH_NEWS = "https://newsapi.org/v2/everything?q="
+const HEADLINES_NEWS = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
+const GENERAL_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=";
+const BUSINESS_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=";
+const TECHNOLOGY_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=technology&pageSize=8&apiKey=";
+const SCIENCE_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=science&apiKey=";
+const ENTERTAINMENT_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=entertainment&apiKey=";
+const HEALTH_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=health&apiKey=";
+const SEARCH_NEWS = "https://newsapi.org/v2/everything?q=";
 
 
 const fetchHeadlines = async () => {
@@ -103,7 +103,7 @@ const fetchBusinessNews = async () => {
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
-        NewsDataArr = myJson.articles;
+        newsDataArr = myJson.articles;
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
@@ -119,7 +119,7 @@ const fetchTechnologyNews = async () => {
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
-        NewsDataArr = myJson.articles;
+        newsDataArr = myJson.articles;
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
@@ -135,7 +135,7 @@ const fetchScienceNews = async () => {
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
-        NewsDataArr = myJson.articles;
+        newsDataArr = myJson.articles;
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
@@ -152,7 +152,7 @@ const fetchEntertainmentNews = async () => {
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
         console.log(myJson);
-        NewsDataArr = myJson.articles;
+        newsDataArr = myJson.articles;
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
@@ -168,7 +168,7 @@ const fetchHealthNews = async () => {
     newsDataArr = [];
     if(response.status >= 200 && response.status < 300){
         const myJson = await response.json();
-        NewsDataArr = myJson.articles;
+        newsDataArr = myJson.articles;
     } else{
         //handle erorrs
         console.log(response.status, response.statusText);
@@ -245,7 +245,7 @@ function displayNews(){
 
         cardBody.appendChild(newsHeading);
         cardBody.appendChild(dateHeading);
-        cardBody.appendChild(discriptiom);
+        cardBody.appendChild(description);
         cardBody.appendChild(link);
 
         card.appendChild(image);
