@@ -1,4 +1,3 @@
-//variables
 const generalBtn = document.getElementById("general");
 const businessBtn = document.getElementById("business");
 const technologyBtn = document.getElementById("technology");
@@ -11,10 +10,12 @@ const newsQuery = document.getElementById("newsQuery");
 const newsType = document.getElementById("newsType");
 const newsdetails = document.getElementById("newsdetails");
 
-//Array
+const filterBtn = document.getElementById("filterBtn");
+const fromDateInput = document.getElementById("fromDate");
+const toDateInput = document.getElementById("toDate");
+
 var NewsDataArr = [];
 
-//apis
 const API_KEY = "8320619300c84651bc866672e88c0087";
 const HEADLINES_NEWS = "https://newsapi.org/v2/top-headlines?country=us&apiKey=";
 const GENERAL_NEWS = "https://newsapi.org/v2/top-headlines?country=us&category=general&apiKey=";
@@ -33,7 +34,6 @@ const fetchHeadlines = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle errors
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -89,7 +89,6 @@ const fetchGeneralNews = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -105,7 +104,6 @@ const fetchBusinessNews = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -121,7 +119,6 @@ const fetchTechnologyNews = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -137,7 +134,6 @@ const fetchScienceNews = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -154,7 +150,6 @@ const fetchEntertainmentNews = async () => {
         console.log(myJson);
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -170,7 +165,6 @@ const fetchHealthNews = async () => {
         const myJson = await response.json();
         newsDataArr = myJson.articles;
     } else{
-        //handle erorrs
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -190,7 +184,6 @@ const fetchQueryNews = async () => {
         const myJson = await response.json();
         newsDataArr =myJson.articles;
     } else{
-        //error handle
         console.log(response.status, response.statusText);
         newsdetails.innerHTML = "<h5>Veri bulunamadı.</h5>"
         return;
@@ -203,10 +196,10 @@ function displayNews(){
 
     newsdetails.innerHTML = "";
 
-    //if(newsDataArr.length == 0){
-    //    newsdetails.innerHTML = "<h5>No data found.</h5>"
-    //    return;
-    //}
+    if(newsDataArr.length == 0){
+        newsdetails.innerHTML = "<h5>No data found.</h5>"
+        return;
+    }
 
     newsDataArr.forEach(news => {
 
@@ -258,6 +251,39 @@ function displayNews(){
     });
 }
 
+
+filterBtn.addEventListener("click", function() {
+    const fromDate = fromDateInput.value;
+    const toDate = toDateInput.value;
+    
+    if (fromDate && toDate) {
+        fetchFilteredNews(fromDate, toDate);
+    } else {
+        alert("Lütfen tarih aralığını seçin.");
+    }
+});
+
+
+const fetchFilteredNews = async (fromDate, toDate) => {
+    const query = newsQuery.value; 
+
+    const response = await fetch(SEARCH_NEWS + encodeURIComponent(newsQuery.value) + "&from=" + fromDate + "&to=" + toDate + "&apiKey=" + API_KEY);
+    
+    newsDataArr = [];
+    if (response.status >= 200 && response.status < 300) {
+        const myJson = await response.json();
+        newsDataArr = myJson.articles;
+    } else {
+        console.log(response.status, response.statusText);
+        newsdetails.innerHTML = "<h5>Veri Bulunamadı.</h5>";
+        return;
+    }
+
+    displayNews();
+}
+
+// Tarih seçimininin kodunda sanırım sıkıntı yok ama News API'ın ücretsiz olan 
+//Developer Planını kullandığım için o alanda işlem yapmama izin verilmiyor.
 
 function kopukFoto(){
     window.open('https://pin.it/5yvxWP1rD', '_blank');
