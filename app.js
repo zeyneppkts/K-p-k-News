@@ -258,3 +258,7 @@ function displayNews(){
     });
 }
 
+
+function kopukFoto(){
+    window.open('https://pin.it/5yvxWP1rD', '_blank');
+}
